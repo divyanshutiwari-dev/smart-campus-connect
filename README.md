@@ -1,352 +1,262 @@
-# Smart Campus Connect
+# 🎓 Smart Campus Connect
 
-A unified student lifecycle management platform for academic tracking, campus navigation, event discovery, and peer connections.
+<p align="center">
+  <img src="assets/smart_campus_banner.jpg" alt="Smart Campus Connect Banner" width="100%">
+</p>
 
----
+> **A unified student lifecycle management platform for academic tracking, campus navigation, event discovery, and peer connections.**
 
-
-## Introduction
-
-Smart Campus Connect is a comprehensive platform that combines academic tracking, campus navigation, event discovery, and social features into one unified application for university students, faculty, and staff.
-
----
-
-
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#what-it-will-do-once-completed)
-- [Technology Stack](#technology-stack)
-- [Documentation](#documentation)
-  - [Assignments 3-14](#assignment-3)
-  - [Assignment 10: Design Patterns](#assignment-10-creational-design-patterns)
-  - [Assignment 11: Repository Pattern](#assignment-11-repository-pattern-and-storage-abstraction)
-  - [Assignment 12: REST API](#assignment-12-service-layer-and-rest-api)
-  - [Assignment 13: CI/CD](#assignment-13-cicd-with-github-actions)
-- [Getting Started](#getting-started)
-- [Running the API](#run-the-api)
-- [Contributing](#contributing)
-- [License](#license)
-- [Author](#author)
-
+[![Python](https://img.shields.io/badge/Python-3.13+-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-green.svg)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-18+-61DAFB.svg)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5+-3178C6.svg)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3+-38B2AC.svg)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 
-## What It Will Do (Once Completed)
+## Overview
 
-### For Students
-- **Academic Dashboard**: View grades, attendance, course materials, and assignment deadlines
-- **Campus Navigator**: Interactive map for finding buildings, rooms, and study spaces
-- **Event Discovery**: Browse and register for campus events, workshops, and club meetings
-- **Study Buddy Finder**: Connect with classmates for group study sessions
-- **Shuttle Tracker**: Real-time campus shuttle locations and arrival predictions
-- **Lost & Found**: Report and search for lost items
-- **Meal Plan Manager**: Track meal swipes and view cafeteria menus
+Smart Campus Connect is a full-stack campus management platform built for students, faculty, and administrators. It combines academic tracking, campus navigation, event discovery, study room booking, and social features into one unified application.
 
-### For Faculty
-- **Class Management**: Take attendance, upload materials, post announcements
-- **Student Communication**: Send notifications to classes or groups
-- **Performance Analytics**: View class performance trends
+### Key Features
 
-### For Administration
-- **Resource Management**: Track classroom utilization and study spaces
-- **Event Approval**: Review and approve student events
-- **Emergency Alerts**: Send campus-wide notifications
+| Module | Features |
+|--------|----------|
+| **Authentication** | JWT-based auth, role-based access (Student/Faculty/Admin), CPUT email validation |
+| **Courses** | Course CRUD, enrollment, credit tracking, department/semester organization |
+| **Events** | Event discovery, registration, categories (Workshop/Career/Social/Academic), attendee tracking |
+| **Study Rooms** | Room search by building/capacity/equipment, real-time availability, booking system |
+| **Dashboard** | Personalized stats, quick actions, recent activity feed |
+| **Profile** | Account settings, role display, notification preferences |
 
 ---
 
-## Technology Stack
+## Tech Stack
 
-| Layer | Technology |
-|-------|------------|
-| Frontend Web | React.js + Tailwind CSS |
-| Mobile App | React Native |
-| Backend API | Node.js/Express |
-| Database | PostgreSQL |
-| Caching | Redis |
-| Real-time | Socket.io |
-| Maps | Google Maps API |
-| Authentication | JWT + OAuth2 |
+### Backend
+- **Framework:** FastAPI (Python 3.13+)
+- **Database:** In-memory repositories (Repository Pattern) — easily swappable for PostgreSQL/MySQL
+- **Auth:** JWT tokens with secure password hashing
+- **Patterns:** Factory, Builder, Singleton, Prototype, Abstract Factory, Repository Pattern
+- **API Docs:** Auto-generated Swagger UI (`/docs`) & ReDoc (`/redoc`)
+
+### Frontend
+- **Framework:** React 18 + TypeScript + Vite
+- **Styling:** Tailwind CSS (dark mode support)
+- **Routing:** React Router v6
+- **State:** React Context + Hooks
+- **HTTP:** Axios with interceptors
+- **Icons:** Lucide React
 
 ---
 
-## Getting Started
+## Quick Start
 
 ### Prerequisites
-
 - Python 3.13+
+- Node.js 18+ (for frontend)
 - Git
-- pip
 
-### Installation
-
+### 1. Clone & Setup Backend
 ```bash
-git clone https://github.com/Amanda2026-crypto/smart-campus-connect.git
+git clone <your-repo-url>
 cd smart-campus-connect
 pip install -r requirements.txt
+```
+
+### 2. Start Backend API
+```bash
+uvicorn src.api.main:app --reload --host 127.0.0.1 --port 8000
+```
+- API: http://127.0.0.1:8000
+- Swagger UI: http://127.0.0.1:8000/docs
+- Health: http://127.0.0.1:8000/health
+
+### 3. Start Frontend (New Terminal)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+- UI: http://localhost:5173
 
 ---
 
-## Documentation
+## Project Structure
 
-### Assignment 3
-- [System Specification](SPECIFICATION.md)
-- [C4 Architectural Diagrams](ARCHITECTURE.md)
-
-### Assignment 4
-- [Stakeholder Analysis](STAKEHOLDER-ANALYSIS.md)
-- [System Requirements Document](SYSTEM-REQUIREMENTS-DOCUMENT.md)
-- [Reflection - Assignment 4](REFLECTION.md)
-
-### Assignment 5
-- [Use Case Diagram](USE-CASE-DIAGRAM.md)
-- [Use Case Specifications](USE-CASE-SPECIFICATIONS.md)
-- [Test Cases](TEST-CASES.md)
-- [Reflection - Assignment 5](REFLECTION-ASSIGNMENT5.md)
-
-### Assignment 6
-- [Agile Planning Document](AGILE-PLANNING.md)
-- [Reflection - Assignment 6](REFLECTION-ASSIGNMENT6.md)
-- [Sprint Board](https://github.com/users/Amanda2026-crypto/projects/1)
-
-### Assignment 7
-- [Template Analysis](template_analysis.md)
-- [Kanban Explanation](kanban_explanation.md)
-- [Reflection - Assignment 7](REFLECTION-ASSIGNMENT7.md)
-- [Template Comparison Screenshot](template-comparison.png)
-- [Kanban Board - Default](kanban-board-default.jpeg)
-- [Kanban Board - Custom Columns](kanban-board-custom-columns.jpeg)
-- [Kanban Board - Final](kanban-board-final.jpeg)
-
-### Github Tools:
-- [Kanban Board](https://github.com/users/Amanda2026-crypto/projects/4)
-
-### Kanban Board Customization
-I added two custom columns to the Kanban template:
-- **Testing**: Stories need verification before marking Done
-- **Blocked**: Stories with dependencies (US-010 depends on US-009)
-
-### Assignment 8
-- [State Transition Diagrams](state-transition-diagrams.md)
-- [Activity Diagrams](activity-diagrams.md)
-- [Reflection - Assignment 8](reflection-assignment8.md)
+```
+smart-campus-connect/
+├── src/
+│   ├── api/
+│   │   ├── main.py              # FastAPI app entry point
+│   │   ├── models/schemas.py    # Pydantic models
+│   │   └── routes/              # API endpoints
+│   │       ├── users.py         # Auth & user management
+│   │       ├── courses.py       # Course CRUD & enrollment
+│   │       ├── assignments.py   # Assignments & grading
+│   │       └── bookings.py      # Study room bookings
+│   ├── creational_patterns/     # Design pattern implementations
+│   ├── domain/                  # Domain models (User, Course, etc.)
+│   ├── factories/               # Repository factory
+│   ├── repositories/            # Repository interfaces & implementations
+│   └── services/                # Business logic layer
+├── frontend/                    # React + TypeScript + Vite app
+│   ├── src/
+│   │   ├── components/          # Shared components (Layout)
+│   │   ├── context/             # React Context (Auth)
+│   │   ├── pages/               # Page components
+│   │   │   ├── AuthPage.tsx     # Login/Register
+│   │   │   ├── DashboardPage.tsx
+│   │   │   ├── CoursesPage.tsx
+│   │   │   ├── EventsPage.tsx
+│   │   │   ├── RoomsPage.tsx
+│   │   │   └── ProfilePage.tsx
+│   │   └── services/api.ts      # Axios API client
+│   └── ...
+├── tests/                       # Unit tests (65 tests passing)
+├── docs/                        # Architecture & design docs
+├── requirements.txt             # Python dependencies
+└── README.md
+```
 
 ---
-### Assignment 9
-- [Domain Model](domain-model.md)
-- [Class Diagram](class-diagram.md)
-- [Reflection - Assignment 9](reflection-assignment9.md)
 
-## Assignment 10: Creational Design Patterns
+## API Endpoints
 
-- [Source Code](src/)
-- [Unit Tests](tests/)
-- [CHANGELOG](CHANGELOG.md)
-- [GitHub Issues](https://github.com/Amanda2026-crypto/smart-campus-connect/issues)
-  
-### Language Choice: Python
-All code is implemented in Python 3.13.
-
-### Six Creational Patterns Implemented
-
-| Pattern | File Location | Purpose |
-|---------|---------------|---------|
-| Simple Factory | `src/creational_patterns/simple_factory.py` | Creates User objects (Student, Faculty, Admin) |
-| Factory Method | `src/creational_patterns/factory_method.py` | Creates Payment Processors (Credit Card, PayPal) |
-| Abstract Factory | `src/creational_patterns/abstract_factory.py` | Creates UI components (Windows/MacOS) |
-| Builder | `src/creational_patterns/builder.py` | Builds complex Assignment objects |
-| Prototype | `src/creational_patterns/prototype.py` | Clones Notification templates |
-| Singleton | `src/creational_patterns/singleton.py` | Single DatabaseConnection instance |
-
-### Running Tests
-```bash
-python -m unittest discover tests
-```
-
-### Test Results
-```bash
-Ran 25 tests in 0.006s
-OK
-```
-
-## Assignment 11: Repository Pattern and Storage Abstraction
-
-**Language:** Python
-
-**Repository Pattern Justification:**
-- Separates business logic from storage details
-- Makes it easy to switch between storage backends
-- Simplifies unit testing (use in-memory for tests)
-
-**Storage Abstraction:** Factory Pattern
-
-**Future Storage Backends:**
-
-| Storage Type | Status |
-|--------------|--------|
-| In-Memory (HashMap) | ✅ Implemented |
-| Database (MySQL/PostgreSQL) | 📝 Stub created |
-| Filesystem (JSON) | 🔜 Future |
-
-**Deliverables:**
-
-- [Repository Interfaces](src/repositories/)
-- [In-Memory Implementations](src/repositories/inmemory/)
-- [Factory Pattern](src/factories/repository_factory.py)
-- [Future Storage Stub](future_storage/database_repository_stub.py)
-- [Unit Tests](tests/test_repositories.py)
-- [Updated Class Diagram](class-diagram.md)
-
-**Running Tests:**
-
-```bash
-python -m unittest tests.test_repositories
-```
-
-## Assignment 12: Service Layer and REST API
-
-**Technology Stack:** FastAPI, Uvicorn, Pydantic
-
-**Service Layer Classes:**
-- `UserService` - User registration, login, management
-- `CourseService` - Course CRUD, enrollment
-- `AssignmentService` - Assignment management, submissions, grading
-- `BookingService` - Study room booking
-
-**API Endpoints:**
-
+### Authentication
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/users/register` | Register a new user |
-| POST | `/api/users/login` | Authenticate user |
+| POST | `/api/users/register` | Register new user |
+| POST | `/api/users/login` | Login & get JWT token |
+| GET | `/api/users/me` | Get current user (requires Bearer token) |
 | GET | `/api/users/{user_id}` | Get user by ID |
-| GET | `/api/users/` | Get all users |
-| DELETE | `/api/users/{user_id}` | Delete user |
-| POST | `/api/courses/` | Create a course |
-| GET | `/api/courses/` | Get all courses |
-| GET | `/api/courses/{course_id}` | Get course by ID |
-| PUT | `/api/courses/{course_id}` | Update course |
-| DELETE | `/api/courses/{course_id}` | Delete course |
-| POST | `/api/courses/{course_id}/enroll/{student_id}` | Enroll student |
-| POST | `/api/assignments/` | Create assignment |
-| POST | `/api/assignments/{assignment_id}/submit` | Submit assignment |
-| POST | `/api/assignments/submissions/{submission_id}/grade` | Grade submission |
-| POST | `/api/bookings/rooms` | Create study room |
-| GET | `/api/bookings/rooms` | Get all study rooms |
-| GET | `/api/bookings/rooms/available` | Get available rooms |
+| GET | `/api/users/` | List all users |
+
+### Courses
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/courses/` | Create course (Faculty/Admin) |
+| GET | `/api/courses/` | List all courses |
+| GET | `/api/courses/{id}` | Get course details |
+| POST | `/api/courses/{id}/enroll/{student_id}` | Enroll student |
+
+### Events
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/events/` | List events |
+| POST | `/api/events/` | Create event |
+| POST | `/api/events/{id}/register` | Register for event |
+
+### Study Rooms & Bookings
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/bookings/rooms` | List all rooms |
+| GET | `/api/bookings/rooms/available` | List available rooms |
 | POST | `/api/bookings/` | Create booking |
-| GET | `/api/bookings/{booking_id}` | Get booking by ID |
-| DELETE | `/api/bookings/{booking_id}` | Cancel booking |
-
-**Swagger UI Screenshots:**
-
-- [Full Swagger UI Page](swagger-ui-full.png)
-- [Expanded Endpoint](swagger-ui-expanded.png)
-
-**Running the API:**
-
-**API Documentation:** http://localhost:8000/docs (Note: Only works when API is running locally)
-
-**Deliverables:**
-- [Service Layer](src/services/)
-- [API Routes](src/api/routes/)
-- [API Models](src/api/models/)
-- [Swagger Screenshot 1](swagger-ui-full.png)
-- [Swagger Screenshot 2](swagger-ui-expanded.png)
-
-## Assignment 13: CI/CD with GitHub Actions
-
-### Branch Protection
-The `main` branch is protected with the following rules:
-- Require pull request reviews (at least 1 reviewer)
-- Require status checks to pass before merging
-- Disable direct pushes
-
-### CI/CD Pipeline
-GitHub Actions workflow (`.github/workflows/ci.yml`) runs on every push and pull request:
-- Sets up Python 3.13
-- Runs tests
-- Uploads artifacts
-
-### Screenshots
-- [Branch Protection Rules](branch-protection-screenshot.png)
-- [Pull Request](pr-screenshot.png)
-- [CI Pipeline Passing](ci-passing-screenshot.png)
-- [Release Artifact](artifact-screenshot.png)
-
-### Files Created
-- [PROTECTION.md](PROTECTION.md)
-- [.github/workflows/ci.yml](.github/workflows/ci.yml)
-
-# Getting Started
-
-## Prerequisites
-
-- Python 3.13+
-- Git
+| GET | `/api/bookings/` | List user bookings |
+| DELETE | `/api/bookings/{id}` | Cancel booking |
 
 ---
 
-## Installation
+## Design Patterns Implemented
+
+This project demonstrates **six creational design patterns** in `src/creational_patterns/`:
+
+| Pattern | File | Purpose |
+|---------|------|---------|
+| Simple Factory | `simple_factory.py` | Creates User objects (Student, Faculty, Admin) |
+| Factory Method | `factory_method.py` | Creates Payment Processors (Credit Card, PayPal) |
+| Abstract Factory | `abstract_factory.py` | Creates UI component families (Windows/MacOS) |
+| Builder | `builder.py` | Builds complex Assignment objects |
+| Prototype | `prototype.py` | Clones Notification templates |
+| Singleton | `singleton.py` | Single DatabaseConnection instance |
+
+**Repository Pattern** in `src/repositories/` with:
+- Abstract interfaces for each entity
+- In-memory implementations (production-ready)
+- Factory for storage backend selection
+- Stubs for future PostgreSQL/MySQL backends
+
+---
+
+## Testing
 
 ```bash
-git clone https://github.com/Amanda2026-crypto/smart-campus-connect.git
-cd smart-campus-connect
-pip install -r requirements.txt
+# Run all tests (65 tests)
+python -m unittest discover tests -v
+
+# Or with pytest
+python -m pytest -v
 ```
+
+All tests pass covering:
+- Creational design patterns
+- Repository implementations
+- Service layer business logic
+- API endpoints
 
 ---
 
-## Run the API
+## Development
 
+### Adding a New Storage Backend
+1. Implement repository interfaces in `src/repositories/`
+2. Register in `src/factories/repository_factory.py`
+3. Update `storage_type` in service initialization
+
+### Frontend Development
 ```bash
-uvicorn src.api.main:app --reload
-```
-
-Then visit:
-
-```text
-http://localhost:8000/docs
+cd frontend
+npm run dev          # Start dev server
+npm run build        # Production build
+npm run preview      # Preview production build
 ```
 
 ---
 
-## Features for Contribution
+## Deployment
 
-| Feature | Difficulty | Skills Needed |
-|---------|------------|----------------|
-| Web Frontend | Medium | React, Tailwind |
-| Mobile App | Medium | React Native |
-| Database Integration | High | PostgreSQL, SQLAlchemy |
-| Real-time Notifications | Medium | WebSockets, Socket.io |
-| Email Service | Low | SMTP, SendGrid |
-| Analytics Dashboard | Medium | Chart.js, Data Visualization |
+### Backend (Production)
+```bash
+# Using Gunicorn + Uvicorn workers
+gunicorn src.api.main:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
 
----
+# Or Docker
+docker build -t smart-campus-connect .
+docker run -p 8000:8000 smart-campus-connect
+```
 
-## Contributing
+### Frontend (Production)
+```bash
+cd frontend
+npm run build
+# Serve dist/ with nginx, Vercel, Netlify, etc.
+```
 
-Please read [Contributing Guidelines](CONTRIBUTING.md) for details on how to contribute.
-
----
-
-## Roadmap
-
-See [Roadmap](ROADMAP.md) for planned features.
-
-### Assignment 14
-- [Contributing Guidelines](CONTRIBUTING.md)
-- [Roadmap](ROADMAP.md)
-- [License](LICENSE)
-- [Peer Review Results](VOTING_RESULTS.md)
-- [Reflection - Assignment 14](REFLECTION-ASSIGNMENT14.md)
 ---
 
 ## License
 
-This project is licensed under the MIT License — see the `LICENSE` file for details.
+MIT License — see [LICENSE](LICENSE) for details.
+
+---
 
 ## Author
 
-**Amanda**
+**Divyanshu Tiwari**  
+*Entrepreneurship Development*
 
+---
+
+## Contributors
+
+- **Ayush3038** — Collaborator
+
+---
+
+## Acknowledgments
+
+- Built as part of the Smart Campus Connect academic project
+- Design patterns implementation inspired by Gang of Four patterns
+- Repository pattern for clean architecture
